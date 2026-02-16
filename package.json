@@ -1,6 +1,6 @@
 {
 	"name": "web-stream-transform",
-	"version": "0.0.0-development",
+	"version": "1.0.0",
 	"description": "Functional transform helpers for Web Streams — map, filter, take, batch, and tap",
 	"license": "MIT",
 	"repository": "mstuart/web-stream-transform",
