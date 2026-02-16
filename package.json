@@ -1,0 +1,46 @@
+{
+	"name": "web-stream-transform",
+	"version": "0.0.0-development",
+	"description": "Functional transform helpers for Web Streams — map, filter, take, batch, and tap",
+	"license": "MIT",
+	"repository": "mstuart/web-stream-transform",
+	"author": {
+		"name": "Mark Stuart",
+		"email": "mstuart@users.noreply.github.com",
+		"url": "https://github.com/mstuart"
+	},
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./index.d.ts",
+			"default": "./index.js"
+		}
+	},
+	"sideEffects": false,
+	"engines": {
+		"node": ">=20"
+	},
+	"scripts": {
+		"test": "xo && ava && tsd"
+	},
+	"files": [
+		"index.js",
+		"index.d.ts"
+	],
+	"keywords": [
+		"stream",
+		"transform",
+		"web",
+		"readablestream",
+		"transformstream",
+		"map",
+		"filter",
+		"pipe",
+		"functional"
+	],
+	"devDependencies": {
+		"ava": "^6",
+		"tsd": "^0.31",
+		"xo": "^0.60"
+	}
+}
