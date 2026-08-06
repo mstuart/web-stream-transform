@@ -46,7 +46,7 @@ export function takeStream<T>(count: number): TransformStream<T, T>;
 /**
 Create a TransformStream that collects chunks into arrays of a given size.
 
-@param size - The batch size.
+@param size - Number of chunks per emitted array; a trailing partial batch is flushed on close.
 @returns A TransformStream that batches chunks.
 
 @example
