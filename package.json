@@ -1,46 +1,49 @@
 {
-	"name": "web-stream-transform",
-	"version": "1.0.0",
-	"description": "Functional transform helpers for Web Streams — map, filter, take, batch, and tap",
-	"license": "MIT",
-	"repository": "mstuart/web-stream-transform",
-	"author": {
-		"name": "Mark Stuart",
-		"email": "mstuart@users.noreply.github.com",
-		"url": "https://github.com/mstuart"
-	},
-	"type": "module",
-	"exports": {
-		".": {
-			"types": "./index.d.ts",
-			"default": "./index.js"
-		}
-	},
-	"sideEffects": false,
-	"engines": {
-		"node": ">=22"
-	},
-	"scripts": {
-		"test": "xo && ava && tsd"
-	},
-	"files": [
-		"index.js",
-		"index.d.ts"
-	],
-	"keywords": [
-		"stream",
-		"transform",
-		"web",
-		"readablestream",
-		"transformstream",
-		"map",
-		"filter",
-		"pipe",
-		"functional"
-	],
-	"devDependencies": {
-		"ava": "^8",
-		"tsd": "^0.33",
-		"xo": "^4.0"
-	}
+  "name": "web-stream-transform",
+  "version": "1.0.0",
+  "description": "Functional transform helpers for Web Streams — map, filter, take, batch, and tap",
+  "keywords": [
+    "stream",
+    "transform",
+    "web",
+    "readablestream",
+    "transformstream",
+    "map",
+    "filter",
+    "pipe",
+    "functional"
+  ],
+  "repository": "mstuart/web-stream-transform",
+  "license": "MIT",
+  "author": {
+    "name": "Mark Stuart",
+    "email": "mstuart@users.noreply.github.com",
+    "url": "https://github.com/mstuart"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    }
+  },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "check": "ultracite check",
+    "fix": "ultracite fix",
+    "test": "ava && tsd"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.6",
+    "ava": "^8",
+    "tsd": "^0.33",
+    "ultracite": "7.10.2"
+  },
+  "engines": {
+    "node": ">=22"
+  }
 }
