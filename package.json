@@ -21,7 +21,9 @@
 		"node": ">=22"
 	},
 	"scripts": {
-		"test": "xo && ava && tsd"
+		"test": "ava && tsd",
+		"check": "ultracite check",
+		"fix": "ultracite fix"
 	},
 	"files": [
 		"index.js",
@@ -39,8 +41,9 @@
 		"functional"
 	],
 	"devDependencies": {
+		"@biomejs/biome": "2.5.6",
 		"ava": "^8",
 		"tsd": "^0.33",
-		"xo": "^4.0"
+		"ultracite": "7.10.2"
 	}
 }
