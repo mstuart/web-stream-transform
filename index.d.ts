@@ -11,7 +11,9 @@ import {mapStream} from 'web-stream-transform';
 const doubled = ReadableStream.from([1, 2, 3]).pipeThrough(mapStream(x => x * 2));
 ```
 */
-export function mapStream<I, O>(function_: (chunk: I) => O | Promise<O>): TransformStream<I, O>;
+export function mapStream<I, O>(
+  function_: (chunk: I) => O | Promise<O>
+): TransformStream<I, O>;
 
 /**
 Create a TransformStream that filters chunks based on a predicate function.
@@ -26,7 +28,9 @@ import {filterStream} from 'web-stream-transform';
 const evens = ReadableStream.from([1, 2, 3, 4]).pipeThrough(filterStream(x => x % 2 === 0));
 ```
 */
-export function filterStream<T>(function_: (chunk: T) => boolean | Promise<boolean>): TransformStream<T, T>;
+export function filterStream<T>(
+  function_: (chunk: T) => boolean | Promise<boolean>
+): TransformStream<T, T>;
 
 /**
 Create a TransformStream that passes only the first `count` chunks.
@@ -72,4 +76,6 @@ import {tapStream} from 'web-stream-transform';
 const logged = ReadableStream.from([1, 2, 3]).pipeThrough(tapStream(x => console.log(x)));
 ```
 */
-export function tapStream<T>(function_: (chunk: T) => void | Promise<void>): TransformStream<T, T>;
+export function tapStream<T>(
+  function_: (chunk: T) => void | Promise<void>
+): TransformStream<T, T>;
