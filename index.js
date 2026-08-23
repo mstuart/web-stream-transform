@@ -35,6 +35,10 @@ Create a TransformStream that passes only the first `count` chunks.
 @returns {TransformStream} A TransformStream that limits chunks.
 */
 export function takeStream(count) {
+  if (!Number.isInteger(count) || count < 0) {
+    throw new TypeError("Expected count to be a non-negative integer");
+  }
+
   let taken = 0;
   return new TransformStream({
     transform(chunk, controller) {
@@ -57,6 +61,10 @@ Create a TransformStream that collects chunks into arrays of a given size.
 @returns {TransformStream} A TransformStream that batches chunks.
 */
 export function batchStream(size) {
+  if (!Number.isInteger(size) || size <= 0) {
+    throw new TypeError("Expected size to be a positive integer");
+  }
+
   let buffer = [];
   return new TransformStream({
     flush(controller) {
