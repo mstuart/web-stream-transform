@@ -129,6 +129,14 @@ test("takeStream returns empty for count 0", async (t) => {
   t.deepEqual(result, []);
 });
 
+test("takeStream rejects invalid counts", (t) => {
+  t.throws(() => takeStream(-1), {
+    instanceOf: TypeError,
+    message: "Expected count to be a non-negative integer",
+  });
+  t.throws(() => takeStream(1.5), { instanceOf: TypeError });
+});
+
 test("takeStream takes exactly 1", async (t) => {
   const result = await collectStream(
     createReadable([10, 20, 30]).pipeThrough(takeStream(1))
@@ -160,6 +168,14 @@ test("batchStream with size 1 wraps each chunk", async (t) => {
     createReadable([1, 2, 3]).pipeThrough(batchStream(1))
   );
   t.deepEqual(result, [[1], [2], [3]]);
+});
+
+test("batchStream rejects invalid sizes", (t) => {
+  t.throws(() => batchStream(0), {
+    instanceOf: TypeError,
+    message: "Expected size to be a positive integer",
+  });
+  t.throws(() => batchStream(1.5), { instanceOf: TypeError });
 });
 
 test("batchStream handles empty stream", async (t) => {
