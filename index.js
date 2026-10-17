@@ -41,6 +41,11 @@ export function takeStream(count) {
 
   let taken = 0;
   return new TransformStream({
+    start(controller) {
+      if (count === 0) {
+        controller.terminate();
+      }
+    },
     transform(chunk, controller) {
       if (taken < count) {
         taken += 1;
