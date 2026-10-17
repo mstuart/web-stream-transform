@@ -44,6 +44,8 @@ Returns a `TransformStream` that only passes chunks where `function_` returns `t
 
 ### takeStream(count)
 
+A count of zero closes the readable side immediately, without waiting for upstream data.
+
 Returns a `TransformStream` that passes only the first `count` chunks then terminates.
 
 ### batchStream(size)
