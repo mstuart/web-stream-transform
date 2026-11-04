@@ -22,3 +22,14 @@ expectType<TransformStream<number, string>>(
 expectType<TransformStream<number, number>>(
   filterStream<number>(async (x) => x > 0)
 );
+
+declare const value: PromiseLike<number>;
+declare const condition: PromiseLike<boolean>;
+declare const effect: PromiseLike<void>;
+expectType<TransformStream<number, number>>(
+  mapStream<number, PromiseLike<number>>(() => value)
+);
+expectType<TransformStream<number, number>>(
+  filterStream<number>(() => condition)
+);
+expectType<TransformStream<number, number>>(tapStream<number>(() => effect));
