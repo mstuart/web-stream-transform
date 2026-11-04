@@ -12,8 +12,8 @@ const doubled = ReadableStream.from([1, 2, 3]).pipeThrough(mapStream(x => x * 2)
 ```
 */
 export function mapStream<I, O>(
-  function_: (chunk: I) => O | Promise<O>
-): TransformStream<I, O>;
+  function_: (chunk: I) => O | PromiseLike<O>
+): TransformStream<I, Awaited<O>>;
 
 /**
 Create a TransformStream that filters chunks based on a predicate function.
@@ -29,7 +29,7 @@ const evens = ReadableStream.from([1, 2, 3, 4]).pipeThrough(filterStream(x => x 
 ```
 */
 export function filterStream<T>(
-  function_: (chunk: T) => boolean | Promise<boolean>
+  function_: (chunk: T) => boolean | PromiseLike<boolean>
 ): TransformStream<T, T>;
 
 /**
@@ -77,5 +77,5 @@ const logged = ReadableStream.from([1, 2, 3]).pipeThrough(tapStream(x => console
 ```
 */
 export function tapStream<T>(
-  function_: (chunk: T) => void | Promise<void>
+  function_: (chunk: T) => void | PromiseLike<void>
 ): TransformStream<T, T>;
